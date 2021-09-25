@@ -9,10 +9,12 @@ end
     
 
 hook.Add( "KeyPress", "SimpleWeaponPickup_HandleKeyPress", function( ply, key )
+    if not LocalPlayer():Alive() then return end
+    if LocalPlayer():GetObserverMode() ~= OBS_MODE_NONE then return end
+
     if key ~= IN_USE then return end
     local ent = GetEyeWeapon(ply)
     if not ent then return end
-    if not ply:Alive() then return end
 
     if ply:EyePos():Distance(ent:GetPos()) > pickupDistance then return end
 

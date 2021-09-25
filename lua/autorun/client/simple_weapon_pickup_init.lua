@@ -26,6 +26,7 @@ end
     
 local function drawHalos()
     if not LocalPlayer():Alive() then return end
+    if LocalPlayer():GetObserverMode() ~= OBS_MODE_NONE then return end
     local ent = GetEyeWeapon(LocalPlayer())
     if not ent then return end
 
@@ -38,6 +39,7 @@ hook.Add( "PreDrawHalos", "SimpleWeaponPickup_DrawHalos", drawHalos )
 local weaponTextMarkup = markup.Parse("<font=CFC_WeaponPickupPrompt><colour=255,0,0,255>[E]</colour> to pick up <colour=0,95,212,255>weapon_name</colour></font>")
 local function doHUDPaint() 
     if not LocalPlayer():Alive() then return end
+    if LocalPlayer():GetObserverMode() ~= OBS_MODE_NONE then return end
     local ent = GetEyeWeapon(LocalPlayer())
     if not ent then return end
 
