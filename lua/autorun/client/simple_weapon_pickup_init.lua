@@ -5,7 +5,7 @@ surface.CreateFont( "CFC_WeaponPickupPrompt", {
     weight = 1000,
     blursize = 0,
     scanlines = 0,
-    antialias = true,
+    antialias = false,
     underline = false,
     italic = false,
     strikeout = false,
